@@ -16,7 +16,7 @@ firmware or installation tools support every listed watch.
 
 The saved Nothing X 3.10.0 catalog has **26 watch SKU entries**, **31 image URLs**
 and **13 distinct image files**. Twelve images show watch appearances; the remaining
-image is a shared steering/case image. Multiple SKU codes point to the same artwork,
+image is a shared grey catalog image (`case.png`). Multiple SKU codes point to the same artwork,
 so the gallery shows each appearance once. The meaning of each SKU alias is not established.
 
 | Watch | Product ID | Appearance | Color codes (hex) |
@@ -33,6 +33,14 @@ so the gallery shows each appearance once. The meaning of each SKU alias is not 
 | Watch Pro 2 | `34F72851` | dark grey | `01`, `09`, `10` |
 | Watch Pro 2 | `34F72851` | light grey | `11`, `12` |
 | Watch Pro 2 | `34F72851` | orange | `13`, `14` |
+
+## Image fields
+
+`globalImageUrl` contains the model/color watch artwork used in the gallery.
+Every watch SKU entry uses the same `steerImageUrl`, pointing to a grey `case.png`.
+It is a shared catalog asset rather than another watch appearance. Its exact use
+in the Nothing X interface has not been established. The gallery lists this asset
+once below the watch images, and the manifest preserves the original field names.
 
 ## Manifest and verification
 
