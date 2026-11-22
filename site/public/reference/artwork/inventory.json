@@ -1,0 +1,534 @@
+[
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "07",
+    "fastPairId": "82D5BB7207",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742125002056_cmf-watch-pro-1-dark-grey-ash-grey-strap.png",
+        "file": "assets/2875b17fc18f714b8208.png",
+        "sha256": "2875b17fc18f714b82083896d25decd34929114bbaff8c7ab4d594f8c8894ace",
+        "bytes": 213391
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "05",
+    "fastPairId": "82D5BB7205",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742124944293_cmf-watch-pro-1-orange.png",
+        "file": "assets/1e3758e4d8cffa5467d0.png",
+        "sha256": "1e3758e4d8cffa5467d0ce7435fb7213ce2bd5b23946dfb3968ef7b349360265",
+        "bytes": 208788
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "02",
+    "fastPairId": "82D5BB7202",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742124870864_cmf-watch-pro-1-silver.png",
+        "file": "assets/b21d19820fa3cf81b9dc.png",
+        "sha256": "b21d19820fa3cf81b9dca6c5ff6d3a592024a8bb93b8187b5727bb9e625fd757",
+        "bytes": 197502
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "01",
+    "fastPairId": "82D5BB7201",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742124798703_cmf-watch-pro-1-dark-grey.png",
+        "file": "assets/6ea0a03693ca95f59fff.png",
+        "sha256": "6ea0a03693ca95f59fff9b30ef8c227c77d03200f09e2af5ec6da77534ff3e4a",
+        "bytes": 215843
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "11",
+    "fastPairId": "34F7285111",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742125143158_cmf-watch-pro-2-light-grey.png",
+        "file": "assets/713cc3453c347525b8d5.png",
+        "sha256": "713cc3453c347525b8d53c9645b4582d146a4aa1dd7dd4bac016825f567eab14",
+        "bytes": 387306
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "13",
+    "fastPairId": "34F7285113",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742125172556_cmf-watch-pro-2-orange.png",
+        "file": "assets/3dac6cef90a310623cf0.png",
+        "sha256": "3dac6cef90a310623cf05dd4fe25bcc827a6c18995be07c6490677bd3239a945",
+        "bytes": 576553
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "15",
+    "fastPairId": "34F7285115",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742125195687_cmf-watch-pro-2-blue.png",
+        "file": "assets/610b84244ce098ed3951.png",
+        "sha256": "610b84244ce098ed39510b8b0ae0430c2247244c46312851dadd691020551311",
+        "bytes": 591072
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "09",
+    "fastPairId": "34F7285109",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1741929343939_cmf-watch-pro-2-dark-grey.png",
+        "file": "assets/204deefe1c999d5c8e94.png",
+        "sha256": "204deefe1c999d5c8e94dbdba1e8de87f2dd178b64da98ab0f60a15a19c51439",
+        "bytes": 529567
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "19",
+    "fastPairId": "335BBD6219",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1753175094610_Bun-dark-grey.png",
+        "file": "assets/5f34fd9c7fb5e0d47dd8.png",
+        "sha256": "5f34fd9c7fb5e0d47dd879826f9ed86b7139ad0f063851cfe7bcabd9dde71408",
+        "bytes": 570319
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "23",
+    "fastPairId": "335BBD6223",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1753175194639_Bun-orange.png",
+        "file": "assets/703d81e8f626436df549.png",
+        "sha256": "703d81e8f626436df54907735db0586576f3aa208e6e5939c491173553a5e8a5",
+        "bytes": 417031
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "21",
+    "fastPairId": "335BBD6221",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1753175145702_Bun-light-grey.png",
+        "file": "assets/67f2924ad60201e1df3c.png",
+        "sha256": "67f2924ad60201e1df3cef350721cea71414d4ea18d14e48408a5b60eb83ff2c",
+        "bytes": 433795
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "20",
+    "fastPairId": "335BBD6220",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1753175113528_Bun-dark-grey.png",
+        "file": "assets/5f34fd9c7fb5e0d47dd8.png",
+        "sha256": "5f34fd9c7fb5e0d47dd879826f9ed86b7139ad0f063851cfe7bcabd9dde71408",
+        "bytes": 570319
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "22",
+    "fastPairId": "335BBD6222",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1753175166780_Bun-light-grey.png",
+        "file": "assets/67f2924ad60201e1df3c.png",
+        "sha256": "67f2924ad60201e1df3cef350721cea71414d4ea18d14e48408a5b60eb83ff2c",
+        "bytes": 433795
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "24",
+    "fastPairId": "335BBD6224",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1753175212749_Bun-orange.png",
+        "file": "assets/703d81e8f626436df549.png",
+        "sha256": "703d81e8f626436df54907735db0586576f3aa208e6e5939c491173553a5e8a5",
+        "bytes": 417031
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "25",
+    "fastPairId": "335BBD6225",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1788836745613_3x_Green_-_square_1MB.png",
+        "file": "assets/210b90518cd6f3fd220f.png",
+        "sha256": "210b90518cd6f3fd220fa256b99f45f35cb0dd04acf667f1a907769596472b08",
+        "bytes": 541047
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      },
+      "brightImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1788836745649_3x_Green_-_square_1MB.png",
+        "file": "assets/210b90518cd6f3fd220f.png",
+        "sha256": "210b90518cd6f3fd220fa256b99f45f35cb0dd04acf667f1a907769596472b08",
+        "bytes": 541047
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "26",
+    "fastPairId": "335BBD6226",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1788836680154_3x_Green_-_square_1MB.png",
+        "file": "assets/210b90518cd6f3fd220f.png",
+        "sha256": "210b90518cd6f3fd220fa256b99f45f35cb0dd04acf667f1a907769596472b08",
+        "bytes": 541047
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      },
+      "brightImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1788836680187_3x_Green_-_square_1MB.png",
+        "file": "assets/210b90518cd6f3fd220f.png",
+        "sha256": "210b90518cd6f3fd220fa256b99f45f35cb0dd04acf667f1a907769596472b08",
+        "bytes": 541047
+      }
+    }
+  },
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "03",
+    "fastPairId": "82D5BB7203",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1741922381070_cmf-watch-pro-1-dark-grey.png",
+        "file": "assets/6ea0a03693ca95f59fff.png",
+        "sha256": "6ea0a03693ca95f59fff9b30ef8c227c77d03200f09e2af5ec6da77534ff3e4a",
+        "bytes": 215843
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "04",
+    "fastPairId": "82D5BB7204",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742124899380_cmf-watch-pro-1-silver.png",
+        "file": "assets/b21d19820fa3cf81b9dc.png",
+        "sha256": "b21d19820fa3cf81b9dca6c5ff6d3a592024a8bb93b8187b5727bb9e625fd757",
+        "bytes": 197502
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "06",
+    "fastPairId": "82D5BB7206",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1741922483355_cmf-watch-pro-1-orange.png",
+        "file": "assets/1e3758e4d8cffa5467d0.png",
+        "sha256": "1e3758e4d8cffa5467d0ce7435fb7213ce2bd5b23946dfb3968ef7b349360265",
+        "bytes": 208788
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro",
+    "modelId": "82D5BB72",
+    "colorId": "08",
+    "fastPairId": "82D5BB7208",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742125029622_cmf-watch-pro-1-dark-grey-ash-grey-strap.png",
+        "file": "assets/2875b17fc18f714b8208.png",
+        "sha256": "2875b17fc18f714b82083896d25decd34929114bbaff8c7ab4d594f8c8894ace",
+        "bytes": 213391
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724950264_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch 3 Pro",
+    "modelId": "335BBD62",
+    "colorId": "01",
+    "fastPairId": "335BBD6201",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1753175068163_Bun-dark-grey.png",
+        "file": "assets/5f34fd9c7fb5e0d47dd8.png",
+        "sha256": "5f34fd9c7fb5e0d47dd879826f9ed86b7139ad0f063851cfe7bcabd9dde71408",
+        "bytes": 570319
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1743674328191_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "10",
+    "fastPairId": "34F7285110",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1741929451908_cmf-watch-pro-2-dark-grey.png",
+        "file": "assets/204deefe1c999d5c8e94.png",
+        "sha256": "204deefe1c999d5c8e94dbdba1e8de87f2dd178b64da98ab0f60a15a19c51439",
+        "bytes": 529567
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "12",
+    "fastPairId": "34F7285112",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1741929509921_cmf-watch-pro-2-light-grey.png",
+        "file": "assets/713cc3453c347525b8d5.png",
+        "sha256": "713cc3453c347525b8d53c9645b4582d146a4aa1dd7dd4bac016825f567eab14",
+        "bytes": 387306
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "14",
+    "fastPairId": "34F7285114",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1741929582982_cmf-watch-pro-2-orange.png",
+        "file": "assets/3dac6cef90a310623cf0.png",
+        "sha256": "3dac6cef90a310623cf05dd4fe25bcc827a6c18995be07c6490677bd3239a945",
+        "bytes": 576553
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "16",
+    "fastPairId": "34F7285116",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1741929627476_cmf-watch-pro-2-blue.png",
+        "file": "assets/610b84244ce098ed3951.png",
+        "sha256": "610b84244ce098ed39510b8b0ae0430c2247244c46312851dadd691020551311",
+        "bytes": 591072
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  },
+  {
+    "model": "Watch Pro 2",
+    "modelId": "34F72851",
+    "colorId": "01",
+    "fastPairId": "34F7285101",
+    "views": {
+      "globalImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_sku/1742125101411_cmf-watch-pro-2-dark-grey.png",
+        "file": "assets/204deefe1c999d5c8e94.png",
+        "sha256": "204deefe1c999d5c8e94dbdba1e8de87f2dd178b64da98ab0f60a15a19c51439",
+        "bytes": 529567
+      },
+      "steerImageUrl": {
+        "url": "https://dmen2t88o28qi.cloudfront.net/device_spu/1749724939476_1734342431566_case.png",
+        "file": "assets/b23f39c7c879b4bfa388.png",
+        "sha256": "b23f39c7c879b4bfa388c8da1a01f32401861719421877504337ce28372476de",
+        "bytes": 4583
+      }
+    }
+  }
+]

@@ -53,3 +53,9 @@ testing. Bypassing ownership/account protections, attacking hardware that is not
 redistributing vendor firmware or copyrighted media fall outside the intended use. Firmware
 modification can permanently damage a device. No warranty is provided; see the AGPL-3.0 for
 the full disclaimer.
+
+## Product artwork reference
+
+The [shared artwork inventory](/reference/watch-artwork/) contains vendor-owned
+Nothing X product images and a source/hash manifest. Those images retain their
+respective ownership and are not relicensed under the repository license.
