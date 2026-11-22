@@ -1,0 +1,123 @@
+---
+title: Watch model and color identification
+description: Product identifiers, factory color codes and advertisement layouts used by Nothing X for CMF watches.
+---
+
+import InteractiveTools from '../../../components/InteractiveTools.astro';
+
+<InteractiveTools tools={["artwork"]} />
+
+CMF watches identify their product model and factory color in Bluetooth
+advertisements. Nothing X combines these values into a catalog key to select the
+corresponding product artwork. A factory color identifies a product variant; it
+does not describe replacement straps or bezels.
+
+## Product identifiers
+
+A product ID contains four bytes. Its catalog representation is eight hexadecimal
+digits in the same byte order, with leading zeroes preserved.
+
+| Product ID | Watch |
+| --- | --- |
+| `82D5BB72` | Watch Pro |
+| `34F72851` | Watch Pro 2 |
+| `335BBD62` | Watch 3 Pro |
+
+The factory color is a separate byte, represented by two hexadecimal digits.
+The catalog key is the product ID followed by the color code. For example,
+`335BBD62` and `23` form `335BBD6223`, an orange Watch 3 Pro entry.
+The catalog calls this combined key `fastPairId`; it is a product/SKU identifier,
+not a unique identifier for an individual watch.
+
+The [artwork reference](/reference/watch-artwork/) lists the known color codes.
+Several codes can share the same image. Their individual regional or retail
+meanings have not been established.
+
+## Advertisement normalization
+
+The field offsets below refer to the byte sequence reconstructed by Nothing X's
+watch parser, not the complete Bluetooth advertising packet.
+
+Android and Web Bluetooth expose manufacturer-specific data with the two-byte
+company identifier separated from its payload. In Nothing X 3.10.0:
+
+- Company ID `0x0CCB` (3275 decimal) uses the supplied payload unchanged.
+- For other company IDs passed to the watch parser, `2C BE` is prepended to the
+  supplied payload before the fields are read.
+
+This second rule describes the parser's normalization branch; it does not mean
+that arbitrary manufacturers identify CMF watches. The parser also checks the
+watch marker and validates the embedded address through its vendor-address check.
+
+## Advertisement layouts
+
+Nothing X uses a legacy layout for normalized data of at least 18 bytes, and a
+compact layout for 14-17 bytes. Shorter data does not contain the complete fields.
+
+| Field | Legacy layout | Compact layout |
+| --- | --- | --- |
+| Embedded Bluetooth address | Bytes 0-5 | Bytes 0-5 |
+| Watch marker | Bytes 6-11: `JX-IWD` | Bytes 6-7: `JX` |
+| Product ID | Bytes 12-15 | Bytes 8-11 |
+| Factory color code | Byte 16 | Byte 12 |
+| State | Byte 17 | Byte 13 |
+
+The address bytes are formatted in their existing order. The product and color
+bytes are converted to uppercase hexadecimal without reversing them.
+Nothing X exposes them as `PRODUCT_ID`, `COLOR_ID` and the combined
+`PRODUCT_COLOR_ID` / `FAST_PAIRED_ID`.
+
+The parser sets `IS_PAIRED` for state bytes `00`, `01` or `02`. This is the app's
+interpretation of an advertising state; it does not establish an authenticated
+GATT session. Advertised identity is not proof of device ownership.
+
+## QR and shell identifiers
+
+The stock onboarding QR uses product field `P` and color field `C`. The QR color
+is decimal, whereas the catalog uses hexadecimal. For example, decimal `35`
+corresponds to catalog color `23`. Comparing the strings without this conversion
+can select the wrong SKU.
+
+Watch Pro 2 and Watch 3 Pro firmware analysis identifies the `APP_PID` property and
+the read-only `AT GETPID` query. Its response format is:
+
+```text
+GETPID:34F72851,OK
+```
+
+This query reports the product ID only. It does not report the factory color.
+Shell-service availability and command support depend on the firmware; the query
+is separate from the encrypted control-channel authentication protocol. A shell
+reply may arrive over several Bluetooth notifications.
+
+## Browser access
+
+Web Bluetooth distinguishes access to GATT services from access to advertisements.
+A successful connection alone does not provide the manufacturer-data color byte.
+Where supported, `BluetoothDevice.watchAdvertisements()` delivers advertisements
+for an authorized device. API support, permissions and the watch's advertising
+state determine whether those bytes are available.
+
+A missing advertisement or unknown color code leaves the factory color unknown.
+An advertised device name can help identify a model, but does not establish a
+factory color. A user-selected frame is a display preference, not detected hardware
+metadata or evidence that a firmware package is compatible.
+
+See the [Web Bluetooth specification](https://bluetooth.spec.whatwg.org/) and
+[BluetoothDevice API reference](https://developer.mozilla.org/en-US/docs/Web/API/BluetoothDevice)
+for the browser interfaces and availability.
+
+## Evidence and scope
+
+The advertisement layouts and state handling come from Nothing X 3.10.0's
+`com.nothing.link.bluetooth.sdk.scan.parser.NothingWatchParser`, including
+`getTotalManufacture()` and `parser()`. `NtBlePlugin` consumes the resulting
+`PRODUCT_ID` and `COLOR_ID`; Flutter's
+`BluetoothHelper.getDeviceInfoByBluetoothDevice` resolves them against the
+`DeviceInfoTable` SKU catalog.
+
+The QR and `APP_PID` findings come from stock Watch Pro 2 and Watch 3 Pro firmware
+analysis. The artwork associations come from the Nothing X product catalog and
+its recorded image URLs. These findings establish the documented formats and
+known catalog mappings, not universal advertisement or shell-command availability
+across every firmware and browser.

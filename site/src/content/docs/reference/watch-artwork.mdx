@@ -3,18 +3,21 @@ title: Watch artwork
 description: Official Nothing X artwork, factory color codes, source URLs and downloadable files for CMF watches.
 ---
 
+import InteractiveTools from '../../../components/InteractiveTools.astro';
+
+<InteractiveTools tools={["artwork"]} />
+
 The Nothing X catalog contains artwork for Watch Pro, Watch Pro 2 and Watch 3 Pro.
 This reference groups identical images and records the product and factory color codes
-used to select them. It is shared reference material; inclusion does not imply that
-firmware or installation tools support every listed watch.
+used to select them. The images show the factory cases, straps and colors listed
+in the product catalog.
 
-[Browse the artwork gallery](/reference/artwork/index.html) ·
 [Download the complete inventory (ZIP)](/reference/artwork/watch-artwork.zip) ·
 [Download the machine-readable manifest (JSON)](/reference/artwork/inventory.json)
 
 ## Inventory
 
-The saved Nothing X 3.10.0 catalog has **26 watch SKU entries**, **31 image URLs**
+The Nothing X 3.10.0 catalog has **26 watch SKU entries**, **31 image URLs**
 and **13 distinct image files**. Twelve images show watch appearances; the remaining
 image is a shared grey catalog image (`case.png`). Multiple SKU codes point to the same artwork,
 so the gallery shows each appearance once. The meaning of each SKU alias is not established.
@@ -47,13 +50,13 @@ once below the watch images, and the manifest preserves the original field names
 Each record contains the catalog model name, product ID (`modelId`), factory color
 code (`colorId`), catalog SKU key (`fastPairId`) and named image views. Each view has
 its source URL, local file path, byte length and SHA-256 digest. Files are stored once
-by hash and referenced by the catalog records that use them. All 13 local files were
-checked against their recorded size and SHA-256 before publication.
+by hash and referenced by the catalog records that use them. The 13 image files retain their
+original PNG bytes; the recorded size and SHA-256 identify each file.
 
 These images describe factory appearances. Replacement straps or bezels can make a
 physical watch look different from its reported factory color. See
 [model and color identification](/reference/watch-identity/) for the advertisement
-layouts and the distinction between detected identity and a manual preview choice.
+layouts and the relationship between product IDs, color codes and catalog keys.
 
 ## Source and attribution
 

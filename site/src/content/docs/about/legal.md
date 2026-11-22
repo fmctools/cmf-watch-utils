@@ -34,6 +34,7 @@ The [data index](/dumps/) lists the artifacts available from this repository.
 - The rebuilt proof-of-concept image under `dumps/binaries/`, which contains third-party
   animation frames.
 - Manifests with sizes and hashes, and redacted notes.
+- [Product artwork and SKU metadata](/reference/watch-artwork/), with source URLs and image hashes.
 
 The following is intentionally excluded:
 

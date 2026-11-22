@@ -97,6 +97,15 @@ coaching language, promotional claims and vague phrases such as “just configur
 it”. First-person project language is suitable for introductions, while technical
 procedures should focus on the user's action and the system's response.
 
+## Standalone research references
+
+A published research reference describes the device, format or protocol and its
+supporting evidence. It must make sense without a development session or a specific
+client implementation. Local test timelines, failed workstation connections,
+implementation handoffs and pending integration plans belong in development notes.
+Keep genuine unknowns, firmware/version boundaries and evidence quality explicit;
+state them as properties of the research rather than a report of the author's session.
+
 ## Privacy and publication
 
 Remove personal Bluetooth addresses, serial numbers, pairing keys, account data,

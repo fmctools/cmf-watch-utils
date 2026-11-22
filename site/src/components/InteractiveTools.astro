@@ -1,12 +1,13 @@
 ---
 import { LinkButton } from '@astrojs/starlight/components';
 
-type Tool = 'wp2' | 'wp3' | 'storage';
+type Tool = 'wp2' | 'wp3' | 'storage' | 'artwork';
 interface Props {
   tools: Tool[];
 }
 
 const links = {
+  artwork: { href: '/reference/artwork/index.html', label: 'Browse gallery' },
   wp2: { href: '/emulator/watch-pro-2/', label: 'Open Watch Pro 2' },
   wp3: { href: '/emulator/watch-pro-3/', label: 'Open Watch 3 Pro' },
   storage: { href: '/storage-explorer/watch-pro-2/', label: 'Open Storage Explorer' },
