@@ -133,6 +133,13 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Shared reference',
+          items: [
+            { label: 'Watch model and color', slug: 'reference/watch-identity' },
+            { label: 'Watch artwork', slug: 'reference/watch-artwork' },
+          ],
+        },
+        {
           label: 'Tool reference',
           items: [
             { label: 'fwkit CLI', slug: 'tooling/fwkit' },
