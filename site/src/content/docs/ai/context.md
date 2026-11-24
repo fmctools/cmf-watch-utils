@@ -116,7 +116,7 @@ Keep WP2 OTA and recovery results scoped to WP2.
 - ACTH checksum fields `+0x1C`/`+0x20` and `+0x0C = 0x62`.
 - `.sty` type-2 `+0x18` font/style encoding.
 - `album.cfg`, `.wfdl +0x17`, several SPP opcodes.
-- `0xA055` capacity byte vs. actual dial slots; side-loaded dial ids are not listed.
+- `0xA055` capacity byte vs. actual dial slots (WP2 reports 7, WP3 1.0.1.77 reports 14; neither filled to capacity). WP2 omits side-loaded dial ids; WP3 listed an appended one.
 - UART recovery path is unverified.
 
 ## Verification

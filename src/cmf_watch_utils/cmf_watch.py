@@ -25,7 +25,7 @@ CCCD = "00002902-0000-1000-8000-00805f9b34fb"
 
 IV = bytes.fromhex("5051525354555657606162636465665A")
 FRAME_MAGIC = 0xF5
-DEFAULT_NAME_PREFIX = "CMF Watch Pro 2"
+DEFAULT_NAME_PREFIX = ("CMF Watch Pro 2", "CMF Watch 3 Pro")
 STATE_PATH = str(TOOLS_DIR / ".watch_state.json")
 
 
@@ -127,13 +127,36 @@ class FrameParser:
         return frames
 
 
+def matches_name(name, prefixes):
+    name = (name or "").lower()
+    return any(prefix.lower() in name for prefix in prefixes)
+
+
+def parse_a055(payload):
+    """Split a decrypted 0xA055 installed-dial list into header fields and dial ids.
+
+    Header bytes: [0] unknown, [1] unknown (changed to the new dial's index after an
+    append on Watch 3 Pro), [2] listed dial count, [3] capacity per the watch.
+    """
+    if len(payload) < 4:
+        raise ValueError(f"0xA055 payload too short: {len(payload)} bytes")
+    header = payload[:4]
+    ids = []
+    for off in range(4, len(payload) - 3, 4):
+        value = struct.unpack_from("<I", payload, off)[0]
+        if value != 0xFFFFFFFF:
+            ids.append(value)
+    return {"header": header, "byte1": header[1], "count": header[2],
+            "capacity": header[3], "ids": ids}
+
+
 def to_int(text):
     return int(text, 16) if text.startswith("0x") else int(text)
 
 
 class Watch:
     def __init__(self, name_prefix=DEFAULT_NAME_PREFIX, address=None, verbose=True):
-        self.name_prefix = name_prefix
+        self.name_prefix = (name_prefix,) if isinstance(name_prefix, str) else tuple(name_prefix)
         self.address = address
         self.verbose = verbose
         self.client = None
@@ -152,13 +175,14 @@ class Watch:
             print(*a, flush=True)
 
     async def find(self, timeout=10.0):
-        self.log(f"scanning {timeout}s for '{self.name_prefix}' ...")
+        wanted = self.address or " or ".join(repr(n) for n in self.name_prefix)
+        self.log(f"scanning {timeout}s for {wanted} ...")
         devices = await BleakScanner.discover(timeout=timeout)
         for d in devices:
             nm = d.name or ""
             if self.address and d.address.upper() == self.address.upper():
                 return d
-            if not self.address and self.name_prefix.lower() in nm.lower():
+            if not self.address and matches_name(nm, self.name_prefix):
                 return d
         if self.verbose:
             for d in sorted(devices, key=lambda x: (x.name or "")):
@@ -1381,16 +1405,13 @@ async def cmd_wf_dials(args):
             print("no a055 (wfInstalled) received")
             return
         p = payloads[-1]
-        print(f"a055 header={p[:4].hex()} payload={len(p)} bytes")
-        ids = []
-        for off in range(4, len(p) - 3, 4):
-            v = struct.unpack_from("<I", p, off)[0]
-            if v == 0xFFFFFFFF:
-                print("  -- sentinel --")
-            else:
-                ids.append(v)
-                print(f"  0x{v:08x}  {v}")
-        print(f"listed dials: {len(ids)}  (a055 omits side-loaded faces)")
+        dials = parse_a055(p)
+        print(f"a055 header={dials['header'].hex()} payload={len(p)} bytes "
+              f"count={dials['count']} capacity={dials['capacity']} byte1={dials['byte1']}")
+        for v in dials["ids"]:
+            print(f"  0x{v:08x}  {v}")
+        print(f"listed dials: {len(dials['ids'])}  (Watch Pro 2 omits side-loaded faces; "
+              "Watch 3 Pro 1.0.1.77 listed an appended one)")
     finally:
         await w.disconnect()
 

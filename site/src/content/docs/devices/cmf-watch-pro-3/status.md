@@ -47,3 +47,18 @@ extraction from arbitrary Watch 3 Pro NAND snapshots remain unverified.
 Physical OTA, physical bootloader recovery and end-to-end Nothing X pairing
 are not established by these tests. Local setup that opens the watch face is
 not account pairing.
+
+## Physical Bluetooth
+
+One retail unit on stock 1.0.1.77, tested from Windows 11 with
+`tools/cmf_watch.py` while the phone's Bluetooth was off. These are physical
+results for this unit only.
+
+| Area | Recorded result | Limit |
+|---|---|---|
+| Discovery | The watch advertises as `CMF Watch 3 Pro-XXXX`. | The default name filter matched only Watch Pro 2 before this change; `--address` works on any version. |
+| AT shell | `info` returned version, serial, name, PID `335bbd62`, battery voltage, NTC temperature and accelerometer values without a pairing handshake. | While the watch is not connected to a phone, any nearby client can read these values. |
+| Pairing | The Watch Pro 2 handshake succeeded on the first attempt, including the client name `CMF Watch Pro 2`. Reconnecting with the stored authkey also succeeded. | End-to-end Nothing X behavior after the PC pairing was not recorded. |
+| `specs` | `0x8005` replied `0x0005` with `02`. | `0x907F` produced no `0xA07F` reply. |
+| Watch-face install | `wf-flash` appended a 110,181-byte FMC catalog face (`old_wf_id = 0`). The watch returned finish `1` and displayed the face. | Always-on rendering was not checked. |
+| `0xA055` dial list | Before the install: header `01 01 07 0e` and 7 ids. After: `01 07 08 0e` and 8 ids, with the appended id last. Byte 2 is the count and byte 3 reads 14. | Byte 3 is assumed to be capacity; the watch was not filled to confirm it. Byte 1 changed from 1 to 7, the appended dial's index, but its meaning is unconfirmed. Unlike Watch Pro 2, the appended dial is listed. |

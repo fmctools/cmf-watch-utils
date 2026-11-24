@@ -89,8 +89,8 @@ through Git. The downloads below also have direct links.
 ## Use
 
 Download the reference firmware using the setup guide before running the offline
-examples. Run commands from the repository root. `info` requires pairing; start
-with `scan` and follow the [BLE guide](https://cmf.arnv.dev/tooling/ble-tools/).
+examples. Run commands from the repository root. On Watch Pro 2 `info` requires pairing;
+a Watch 3 Pro on 1.0.1.77 answered it without pairing. Start with `scan` and follow the [BLE guide](https://cmf.arnv.dev/tooling/ble-tools/).
 
 ```bash
 # offline: parse and verify a firmware image
