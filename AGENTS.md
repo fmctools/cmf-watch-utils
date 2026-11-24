@@ -126,7 +126,8 @@ are re-derived rather than assumed, and are documented in their own section.
 - ACTH checksum fields `+0x1C` / `+0x20` and `+0x0C = 0x62`.
 - `.sty` type-2 `+0x18` font and style encoding.
 - `album.cfg`, the `.wfdl` header byte `+0x17`, several SPP opcodes.
-- `0xA055` capacity byte against the actual slot count; side-loaded dial ids are not listed.
+- `0xA055` capacity byte against the actual slot count (WP2 reports 7, WP3 1.0.1.77 reports 14;
+  neither filled to capacity). WP2 omits side-loaded dial ids; WP3 listed an appended one.
 - The UART recovery path is unverified.
 
 ## Working rules for changes

@@ -129,6 +129,7 @@ export default defineConfig({
             { label: 'Reference', items: [
               { label: 'Firmware format', slug: 'devices/cmf-watch-pro-3/formats' },
               { label: 'Hardware and emulation', slug: 'devices/cmf-watch-pro-3/hardware' },
+              { label: 'Data sync frames', slug: 'devices/cmf-watch-pro-3/data-sync' },
             ] },
           ],
         },

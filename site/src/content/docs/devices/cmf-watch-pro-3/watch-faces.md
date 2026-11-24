@@ -47,6 +47,21 @@ Compare both the stock picker preview and the selected face. They use different
 drawing paths. Check hands, digits, transparency and edges, then switch to another
 face and back. Record the firmware, runtime version, selected face and screenshot.
 
+## Known emulator differences
+
+Compared against a physical Watch 3 Pro on 1.0.1.77 with the FMC face
+Cluster clock (`6j44bo84i4l7rf4`), using the `emulator-v0.1.0-preview.10`
+Windows release:
+
+- **Tinted shapes:** the hour discs rendered blue (about `0,190,245`) in QEMU,
+  while the watch and the face's own thumbnail show yellow (`255,202,0`). The
+  values match a red/blue swap when a tinted shape resource is coloured.
+- **Always-on minutes:** QEMU drew the always-on variant correctly but did not
+  repaint it when the minute changed; waking showed the right time. On the
+  watch the always-on face appeared to update each minute.
+- **Reaching always-on:** `--watch-face-preview` disables the screen timeout,
+  so the always-on variant never starts with that option.
+
 All seven normal stock faces were checked on Windows and in the browser.
 Always-on variants and complete animation timing remain outside that result.
 A rendered preview does not establish that a face fits or installs on hardware.
