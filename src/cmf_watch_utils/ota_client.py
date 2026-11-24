@@ -58,6 +58,9 @@ def ts():
     return time.strftime("%H:%M:%S") + f".{int(time.time() * 1000) % 1000:03d}"
 
 
+DEDUPE_WINDOW = 0.2  # seconds; the watch re-requests a range after ~1.5 s
+
+
 class Ota:
     allow_init2_fallback = True
 
@@ -82,6 +85,13 @@ class Ota:
         self.a040 = asyncio.Event()
         self.end_sent = False
         self.statuses = []
+        # Some hosts deliver every notification twice (Watch 3 Pro on Linux/BlueZ, #35).
+        # Answering both copies makes the watch reject the staged update with A041 00.
+        self.dedupe_window = getattr(args, "dedupe_window", DEDUPE_WINDOW)
+        self.clock = time.monotonic
+        self.last_notify = None
+        self.notify_received = 0
+        self.notify_dropped = 0
 
     def log(self, msg):
         print(f"[{ts()}] {msg}", flush=True)
@@ -97,9 +107,9 @@ class Ota:
             raise SystemExit("specified watch not found; refusing fallback")
         for d in devs:
             name = (d.name or "").lower()
-            if "cmf watch pro 2" in name:
+            if "cmf watch pro 2" in name or "cmf watch 3 pro" in name:
                 return d
-        raise SystemExit("CMF Watch Pro 2 not found (pass --address)")
+        raise SystemExit("CMF watch not found (pass --address)")
 
     async def connect(self):
         dev = await self.find()
@@ -125,8 +135,21 @@ class Ota:
             except Exception as e:
                 self.log(f"  (notify {u} failed: {e})")
 
+    def is_repeat(self, data):
+        """True for a byte-identical copy of the previous notification within the window."""
+        now = self.clock()
+        last = self.last_notify
+        self.notify_received += 1
+        if self.dedupe_window > 0 and last and last[0] == data and now - last[1] < self.dedupe_window:
+            self.notify_dropped += 1
+            return True
+        self.last_notify = (data, now)
+        return False
+
     def on_notify(self, sender, data):
         b = bytes(data)
+        if self.is_repeat(b):
+            return
         for cmd1, cmd2, cc, ci, body, enc in self.parser.feed(b):
             self.rx.put_nowait((cmd1, cmd2, cc, ci, body, enc))
 
@@ -315,7 +338,8 @@ class Ota:
                         break
         finally:
             self.log(f"summary: frames={self.served_frames} bytes={self.served_bytes} "
-                     f"({100.0*self.served_bytes/len(self.img):.1f}% of image)")
+                     f"({100.0*self.served_bytes/len(self.img):.1f}% of image) "
+                     f"notifications={self.notify_received} repeats_dropped={self.notify_dropped}")
             try:
                 await self.client.disconnect()
             except Exception:
@@ -333,6 +357,9 @@ def main():
     ap.add_argument("--idle-timeout", type=float, default=120.0)
     ap.add_argument("--pace", type=float, default=0.0, help="sleep between write batches")
     ap.add_argument("--pipeline", type=int, default=4, help="frames written concurrently per batch")
+    ap.add_argument("--dedupe-window", type=float, default=DEDUPE_WINDOW,
+                    help="drop a notification identical to the previous one within this many "
+                         "seconds (0 disables; see #35)")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--stop-after-a040", action="store_true")
     ap.add_argument("-v", "--verbose", action="store_true")
