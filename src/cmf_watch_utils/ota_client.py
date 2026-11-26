@@ -58,7 +58,8 @@ def ts():
     return time.strftime("%H:%M:%S") + f".{int(time.time() * 1000) % 1000:03d}"
 
 
-DEDUPE_WINDOW = 0.2  # seconds; the watch re-requests a range after ~1.5 s
+DEDUPE_WINDOW = 0.2  # seconds; the watch re-requests a range after ~1 s (#35: 1.08 s)
+DEDUPE_RECENT = 4  # notifications remembered, so interleaved copies (A B A B) are caught too
 
 
 class Ota:
@@ -89,7 +90,7 @@ class Ota:
         # Answering both copies makes the watch reject the staged update with A041 00.
         self.dedupe_window = getattr(args, "dedupe_window", DEDUPE_WINDOW)
         self.clock = time.monotonic
-        self.last_notify = None
+        self.recent = []  # (bytes, time) of the last DEDUPE_RECENT kept notifications
         self.notify_received = 0
         self.notify_dropped = 0
 
@@ -105,10 +106,13 @@ class Ota:
                 if (d.address or "").upper() == want:
                     return d
             raise SystemExit("specified watch not found; refusing fallback")
-        for d in devs:
-            name = (d.name or "").lower()
-            if "cmf watch pro 2" in name or "cmf watch 3 pro" in name:
-                return d
+        found = [d for d in devs if cw.matches_name(d.name, cw.DEFAULT_NAME_PREFIX)]
+        if len(found) > 1:
+            # Watch Pro 2 and Watch 3 Pro images are not interchangeable: never guess between watches
+            names = ", ".join(f"{d.name} {d.address}" for d in found)
+            raise SystemExit(f"several CMF watches found ({names}); pass --address")
+        if found:
+            return found[0]
         raise SystemExit("CMF watch not found (pass --address)")
 
     async def connect(self):
@@ -136,14 +140,15 @@ class Ota:
                 self.log(f"  (notify {u} failed: {e})")
 
     def is_repeat(self, data):
-        """True for a byte-identical copy of the previous notification within the window."""
+        """True for a byte-identical copy of a recent notification within the window."""
         now = self.clock()
-        last = self.last_notify
         self.notify_received += 1
-        if self.dedupe_window > 0 and last and last[0] == data and now - last[1] < self.dedupe_window:
-            self.notify_dropped += 1
-            return True
-        self.last_notify = (data, now)
+        if self.dedupe_window > 0:
+            for prev, at in self.recent:
+                if prev == data and now - at < self.dedupe_window:
+                    self.notify_dropped += 1
+                    return True
+        self.recent = (self.recent + [(data, now)])[-DEDUPE_RECENT:]
         return False
 
     def on_notify(self, sender, data):
