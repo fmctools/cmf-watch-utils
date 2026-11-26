@@ -58,6 +58,10 @@ def ts():
     return time.strftime("%H:%M:%S") + f".{int(time.time() * 1000) % 1000:03d}"
 
 
+DEDUPE_WINDOW = 0.2  # seconds; the watch re-requests a range after ~1 s (#35: 1.08 s)
+DEDUPE_RECENT = 4  # notifications remembered, so interleaved copies (A B A B) are caught too
+
+
 class Ota:
     allow_init2_fallback = True
 
@@ -82,6 +86,13 @@ class Ota:
         self.a040 = asyncio.Event()
         self.end_sent = False
         self.statuses = []
+        # Some hosts deliver every notification twice (Watch 3 Pro on Linux/BlueZ, #35).
+        # Answering both copies makes the watch reject the staged update with A041 00.
+        self.dedupe_window = getattr(args, "dedupe_window", DEDUPE_WINDOW)
+        self.clock = time.monotonic
+        self.recent = []  # (bytes, time) of the last DEDUPE_RECENT kept notifications
+        self.notify_received = 0
+        self.notify_dropped = 0
 
     def log(self, msg):
         print(f"[{ts()}] {msg}", flush=True)
@@ -95,11 +106,14 @@ class Ota:
                 if (d.address or "").upper() == want:
                     return d
             raise SystemExit("specified watch not found; refusing fallback")
-        for d in devs:
-            name = (d.name or "").lower()
-            if "cmf watch pro 2" in name:
-                return d
-        raise SystemExit("CMF Watch Pro 2 not found (pass --address)")
+        found = [d for d in devs if cw.matches_name(d.name, cw.DEFAULT_NAME_PREFIX)]
+        if len(found) > 1:
+            # Watch Pro 2 and Watch 3 Pro images are not interchangeable: never guess between watches
+            names = ", ".join(f"{d.name} {d.address}" for d in found)
+            raise SystemExit(f"several CMF watches found ({names}); pass --address")
+        if found:
+            return found[0]
+        raise SystemExit("CMF watch not found (pass --address)")
 
     async def connect(self):
         dev = await self.find()
@@ -125,8 +139,22 @@ class Ota:
             except Exception as e:
                 self.log(f"  (notify {u} failed: {e})")
 
+    def is_repeat(self, data):
+        """True for a byte-identical copy of a recent notification within the window."""
+        now = self.clock()
+        self.notify_received += 1
+        if self.dedupe_window > 0:
+            for prev, at in self.recent:
+                if prev == data and now - at < self.dedupe_window:
+                    self.notify_dropped += 1
+                    return True
+        self.recent = (self.recent + [(data, now)])[-DEDUPE_RECENT:]
+        return False
+
     def on_notify(self, sender, data):
         b = bytes(data)
+        if self.is_repeat(b):
+            return
         for cmd1, cmd2, cc, ci, body, enc in self.parser.feed(b):
             self.rx.put_nowait((cmd1, cmd2, cc, ci, body, enc))
 
@@ -315,7 +343,8 @@ class Ota:
                         break
         finally:
             self.log(f"summary: frames={self.served_frames} bytes={self.served_bytes} "
-                     f"({100.0*self.served_bytes/len(self.img):.1f}% of image)")
+                     f"({100.0*self.served_bytes/len(self.img):.1f}% of image) "
+                     f"notifications={self.notify_received} repeats_dropped={self.notify_dropped}")
             try:
                 await self.client.disconnect()
             except Exception:
@@ -333,6 +362,9 @@ def main():
     ap.add_argument("--idle-timeout", type=float, default=120.0)
     ap.add_argument("--pace", type=float, default=0.0, help="sleep between write batches")
     ap.add_argument("--pipeline", type=int, default=4, help="frames written concurrently per batch")
+    ap.add_argument("--dedupe-window", type=float, default=DEDUPE_WINDOW,
+                    help="drop a notification identical to the previous one within this many "
+                         "seconds (0 disables; see #35)")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--stop-after-a040", action="store_true")
     ap.add_argument("-v", "--verbose", action="store_true")
